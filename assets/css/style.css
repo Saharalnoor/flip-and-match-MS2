@@ -78,7 +78,7 @@ h1 {
 }
 
 .card:hover {
-  cursor: url('../images/paw-cursor.cur'), auto;
+  cursor: url('../cursor/paw-cursor.cur'), auto;
 }
 
 .card:active {
@@ -113,7 +113,11 @@ h1 {
     .card{
         width: 80px;
         height: 80px;
-        }
+    }
+
+    .card:hover {
+        cursor: url('../images/paw-cursor.cur'), auto;
+    }
 
     .game-info-container {
       
