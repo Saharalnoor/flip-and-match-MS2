@@ -1,10 +1,10 @@
-![Flip and Match](assets/ReadMeDocs/game-title/game-title.png)
+![Flip and Match](ReadMeDocs/game-title/game-title.png)
 
 ## Interactive Frontend Development Milestone Project
 
 Flip and Match is a memory game for ......
 
-![multiple different screen sizes](assets/ReadMeDocs/multi-device-mockups.png)
+![multiple different screen sizes](ReadMeDocs/multi-device-mockups.png)
 
 ## Goal of the Website
 
