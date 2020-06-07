@@ -101,3 +101,32 @@ h1 {
     border: 2px solid #ffffff;
 }
 
+@media (max-width: 600px) {
+    
+    h1 {
+        font-size: 30px;
+    }
+    .game-card {
+        grid-template-columns: repeat(3, auto);
+    }
+
+    .card{
+        width: 80px;
+        height: 80px;
+        }
+
+    .game-info-container {
+      
+        align-items: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .game-info {
+        font-size: 20px;
+    }
+
+    .reset-button {
+        padding: 20px;
+    }
+}
