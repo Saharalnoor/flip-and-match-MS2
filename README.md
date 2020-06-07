@@ -4,7 +4,7 @@
 
 Flip and Match is a memory game for ......
 
-![multiple different screen sizes](ReadMeDocs/multi-device-mockups.png)
+![multiple different screen sizes](ReadMeDocs/mockups/multi-device-mockups.png)
 
 ## Goal of the Website
 
