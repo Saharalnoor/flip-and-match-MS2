@@ -51,7 +51,7 @@ h1 {
     grid-gap: 30px;
     margin: 50px;
     justify-content: center;
-    perspective: 500px;
+    perspective: 1000px;
 }
 
 .card-front {
@@ -61,6 +61,7 @@ h1 {
     position: absolute;
     border-radius: 7px;
     background: #1C7CCC;
+    transform: rotateY(180deg);
 }
 
 .card-back {
@@ -70,11 +71,19 @@ h1 {
     position: absolute;
     border-radius: 7px;
     background: #1C7CCC;
+    backface-visibility: hidden;
 }
 
 .card {
     height: 165px;
     width: 125px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.card.flip {
+  transform: rotateY(180deg);
 }
 
 .card:hover {
