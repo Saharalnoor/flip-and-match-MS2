@@ -19,51 +19,51 @@
             </div>
 
             <div class="game-card mt-10">
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/chase.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/chase.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/skye.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/skye.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/marshall.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/marshall.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/rocky.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/rocky.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/rubble.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/rubble.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/zuma.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card">
+                <div class="card" onclick="flipCard(this)">
                     <img class="card-front" src="assets/images/zuma.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
@@ -73,11 +73,28 @@
                     <button class="btn btn-danger btn-lg reset-btn" id="reset-btn">Restart <i class="fas fa-undo-alt" title="reset cards button"></i></button>
                 </div>
             </div>
+            <div class="modal" id="gameOverModal">
+            <div class="modal-content">
+                <span aria-label="close" role="button" class="close" id="closeModal">&times;</span>
+                <div class="modal-header">
+                    <h2>Game Over</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="message">
+                        <p>Congratulations!</p>
+                    </div>
+                </div>
+                <div class="modal-button">
+                     <button class="btn btn-danger btn-lg reset-btn" id="restart-btn">Click to Restart <i class="fas fa-undo-alt" title="reset cards button"></i></button>
+                </div>
+            </div>
+        </div>
    </div>
     
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
