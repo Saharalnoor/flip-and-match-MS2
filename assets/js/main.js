@@ -1,25 +1,9 @@
-class AudiController{
-    constructor() {
-        
-        this.flipSound = new Audio('assets/audio/flip-sound.wav');
-        this.matchSound = new Audio('assets/audio/match-sound.wav');
-        this.gameOverSound = new Audio('assets/audio/fail-sound.wav');
-        this.victorySound = new Audio('assets/audio/victory-sound.wav');
-    }
-    
-}
-
-
-let cardArray = cards;
-let cardElementsArray = [...cardElements];
-let totalTime = totalTime;
-let timeRemaining =totalTime;
-let timer = document.getElementById('time-remaining');
-let thicker = document.getElementById('moves')
+   let cardElementsArray = document.querySelector('.card');
+let ticker = document.getElementById('moves')
 let openedCards = [];
 let matchedCards =  [];
-let moves;
-let audioController = new AudiController();
+let moves = 0;
+
 
 
 
@@ -35,27 +19,29 @@ function shuffle(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-
+    console.log('shuffle')
     return array;
 }
 
-function flipCard() {
-    this.children[0].classList.toggle('show-img');
-    this.classList.toggle("open");
-    this.classList.toggle("flip");
-    this.classList.toggle("disabled");
-    cardOpen(this);
+function flipCard(cardDiv) {
+    cardDiv.children[0].classList.toggle('show-img');
+    cardDiv.classList.toggle("open");
+    cardDiv.classList.toggle("flip");
+    cardDiv.classList.toggle("disabled");
+    cardOpen(cardDiv);
 }
 
 function cardOpen(card) {
     openedCards.push(card);
     let len = openedCards.length;
     if(len === 2) {
-        moveCounter();
-        if(openedCards[0].type === openedCards[1].type) {
+       /* moveCounter();*/
+       if(openedCards[0].children[0].src === openedCards[1].children[0].src) {
             matched();
+            console.log('matched')
         } else {
             unmatched();
+            console.log('unmatched')
         }
     }
 }
@@ -73,62 +59,39 @@ function matched() {
     }
 }
 
+
 function unmatched() {
     openedCards[0].classList.add("unmatched");
     openedCards[1].classList.add("unmatched");
-    disable();
+    disable(openedCards[0]);
+    disable(openedCards[1])
     setTimeout(function() {
         openedCards[0].classList.remove("show", "open", "unmatched");
         openedCards[1].classList.remove("show", "open", "unmatched");
         openedCards[0].children[0].classList.remove('show-img');
         openedCards[1].children[0].classList.remove('show-img');
-        enable();
         openedCards = [];
         
     }, 1100)
 }
 
-function disable() {
-    cardElementsArray.filter((card, i, cardElementsArray) => {
-        card.classList.add('disabled');
+
+function disableCards() {
+   card.classList.add('disabled');
+}
+
+function enable() {
+    cardElementsArray.filter((card, cardElementsArray) => {
+        card.classList.remove('disabled');
+        for(let i=0; i<matchedCards.length; i++) {
+            matchedCards[i].classList.add('disabled');
+        }
     })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ function flipCards() {
+   setTimeout(() => {
+     openedCards[0].classList.add('flip');
+     openedCards[1].classList.add('flip');
+   }, 1500);
+ }
