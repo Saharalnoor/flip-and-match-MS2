@@ -149,3 +149,46 @@ function checkMatch(){
     return;
 
 }
+
+// pause the game when playing
+function pause(){
+
+    btn.innerHTML = "RESUME";
+    clearInterval(counterFunc);
+    cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
+    return;
+}
+
+
+// resume the game if it was paused
+function resume(){
+    btn.innerHTML = "PAUSE";
+    count();
+    addEvent();
+    return;
+}
+
+
+function game_over(){
+
+    clearInterval(counterFunc);
+
+    gameover_cont.style.left = 0;
+    gameover_cont.style.top = 0;
+
+    gameover_header.innerHTML = "GAME OVER !!";
+
+    if(timeCounter < 60){
+        gameover_details.innerHTML = timeCounter+" SEC |  "+clicks+" MOVES";
+      } else {
+        gameover_details.innerHTML = (Math.floor(timeCounter/60))+" MIN, "+(timeCounter%60)+" SEC | "+clicks+" MOVES";
+    }
+
+    btn.innerHTML = "PLAY";
+    cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
+
+    gameover_play_again.onclick = reset;
+
+    return;
+}
+
