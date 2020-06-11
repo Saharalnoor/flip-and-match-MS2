@@ -80,3 +80,72 @@ function lockCards(){
     cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
     return;
 }
+
+
+
+// function which checks for match
+function checkMatch(){
+
+    clicks++;
+
+    moves.innerHTML ="Moves: <span>"+clicks+"</span>";
+
+    // flip the card
+    this.classList.add("flip");
+
+    // show the image that was hidden under the clicked card
+    document.querySelector(".card-"+this.dataset.id).classList.add("show");
+
+    if(flipped_cards == 0){
+        first_card = this;
+        flipped_cards++;
+        return;
+    }
+
+    // lock the cards and wait until the cards flip back
+    lockCards();
+
+
+    flipped_cards = 0;
+    second_card = this;
+
+    // get the value of first clicked card and second clicked card
+    first_value = first_card.dataset.win;
+    second_value = second_card.dataset.win;
+
+    if(first_value == second_value){
+       
+        disabled_cards.push(first_card);
+        disabled_cards.push(second_card);
+
+        if(matched == 5) return game_over();
+
+        matched++;
+        first_card.removeEventListener("click",checkMatch);
+        second_card.removeEventListener("click",checkMatch);
+
+        // unlock the cards after 2 seconds if its a match
+        setTimeout(addEvent, 1000);
+
+    } else {
+
+        // flip back the two cards after 2 seconds if its not a match
+        setTimeout(() => {
+            
+            first_card.classList.remove("flip");
+            second_card.classList.remove("flip");
+
+            // hide the images under the flipped cards
+            document.querySelector(".card-"+first_card.dataset.id).classList.remove("show");
+            document.querySelector(".card-"+second_card.dataset.id).classList.remove("show");
+
+            //unlock cards after flipping back the cards
+            addEvent();
+
+        }, 1000);
+        
+    }
+
+    return;
+
+}
