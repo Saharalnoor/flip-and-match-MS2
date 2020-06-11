@@ -21,10 +21,17 @@ let maximumTime = 60,
     cards = document.querySelectorAll(".card");
 
 
-    //Start game
-    function play(){
+    // refresh the page when the game is over after pressing on "PLAY AGAIN"
+function reset(){
 
-    if((!gameIsRunning) && (!firstRun)){
+   window.location.href = window.location.href;
+
+}
+
+
+function play(){
+
+   if((!gameIsRunning) && (!firstRun)){
 
         gameIsRunning = true;
         return resume();
@@ -40,15 +47,16 @@ let maximumTime = 60,
     gameIsRunning = true;
     this.innerHTML = "PAUSE";
 
-//shuffle the cards
+  //shuffle the cards
   shuffle();
 
-// add click event listeners
+  // add click event listeners
   addEvent()
 
-// start the time counter
+  // start the time counter
   count()
 }
+
 
 // shuffling function
 function shuffle(){
@@ -80,6 +88,7 @@ function lockCards(){
     cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
     return;
 }
+
 
 
 
@@ -150,6 +159,7 @@ function checkMatch(){
 
 }
 
+
 // pause the game when playing
 function pause(){
 
@@ -192,8 +202,9 @@ function game_over(){
     return;
 }
 
+
 function count(){
-    
+
  counterFunc = setInterval(()=>{
 
    timeCounter++;
