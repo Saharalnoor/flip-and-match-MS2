@@ -192,3 +192,24 @@ function game_over(){
     return;
 }
 
+function count(){
+    
+ counterFunc = setInterval(()=>{
+
+   timeCounter++;
+    
+    if(timeCounter < 60){
+        time.innerHTML = "Time: <span> "+timeCounter+" sec </span>";
+    } else {
+        time.innerHTML = "Time: <span> "+(Math.floor(timeCounter/60))+" min, "+(timeCounter%60)+" sec </span>";
+    }
+
+    if((timeCounter == maximumTime)) return game_over();
+    
+
+ },1000);
+
+}
+
+
+btn.onclick = play;
