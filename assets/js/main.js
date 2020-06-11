@@ -19,3 +19,23 @@ let maximumTime = 60,
     gameover_details = document.querySelector(".details"),
     gameover_play_again = document.querySelector(".play_again"),
     cards = document.querySelectorAll(".card");
+
+
+    //Start game
+    function play(){
+
+    if((!gameIsRunning) && (!firstRun)){
+
+        gameIsRunning = true;
+        return resume();
+
+    } else if(!firstRun){
+
+        gameIsRunning = false;
+        return pause();
+
+    }
+
+    firstRun = false;
+    gameIsRunning = true;
+    this.innerHTML = "PAUSE";
