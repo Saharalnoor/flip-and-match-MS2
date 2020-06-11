@@ -38,7 +38,7 @@ h1 {
     padding-right: 500px;
 }
 
-.game-info {
+.time, .moves {
     font-family: "Raleway", sans-serif;
     text-shadow: -1px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -1px #ffffff;
     color: #ff0000; 
@@ -129,14 +129,9 @@ h1 {
     }
 
     .game-info-container {
-      
         align-items: center;
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    .game-info {
-        font-size: 20px;
     }
 
     .reset-button {
