@@ -39,3 +39,44 @@ let maximumTime = 60,
     firstRun = false;
     gameIsRunning = true;
     this.innerHTML = "PAUSE";
+
+//shuffle the cards
+  shuffle();
+
+// add click event listeners
+  addEvent()
+
+// start the time counter
+  count()
+}
+
+// shuffling function
+function shuffle(){
+   cards.forEach((card)=>{card.style.order = Math.floor(Math.random()*10)});
+   return;
+}
+
+
+// function which listens for click events on cards
+function addEvent(){
+
+    // add click event listeners to the cards and attach the checkMatch function to it
+    cards.forEach((card)=>{card.addEventListener("click",checkMatch)});
+
+    // remove click event listener to the already matched cards
+    if(disabled_cards.length > 0){
+        disabled_cards.forEach((card)=>{
+            card.removeEventListener("click",checkMatch);
+        })
+    }
+
+    return;
+
+}
+
+
+// lock the cards to wait for the flipped cards to flip back
+function lockCards(){
+    cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
+    return;
+}
