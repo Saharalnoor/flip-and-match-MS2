@@ -11,84 +11,68 @@
 </head>
 <body>
 
-   <div class="game-container">
-            <h1>Flip and Match</h1>
+    <div class="game-container">
+                <h1>Flip and Match</h1>
             <div class="game-info-container mt-5">
-                <div class="game-info">Time: <span id="time-remaining">100</span></div>
-                <div class="game-info">Moves: <span id="moves">0</span></div>
+                <div class="time">Time: <span>00 </span></div>
+                <div class="moves">Moves: <span id="moves">00</span></div>
             </div>
 
             <div class="game-card mt-10">
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/chase.jpg" alt="" />
+                <div data-id="1" data-win="1" class="card">
+                    <img class="card-front card-1" src="assets/images/chase.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/chase.jpg" alt="" />
+                <div data-id="1" data-win="1" class="card">
+                    <img class="card-front card-2" src="assets/images/chase.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/skye.jpg" alt="" />
+                <div data-id="1" data-win="2" class="card">
+                    <img class="card-front card-3" src="assets/images/skye.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/skye.jpg" alt="" />
+                <div data-id="1" data-win="2" class="card">
+                    <img class="card-front card-4" src="assets/images/skye.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/marshall.jpg" alt="" />
+                <div data-id="1" data-win="3" class="card">
+                    <img class="card-front card-5" src="assets/images/marshall.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/marshall.jpg" alt="" />
+                <div data-id="1" data-win="3" class="card">
+                    <img class="card-front card-6" src="assets/images/marshall.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/rocky.jpg" alt="" />
+                <div data-id="1" data-win="4" class="card">
+                    <img class="card-front card-7" src="assets/images/rocky.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/rocky.jpg" alt="" />
+                <div data-id="1" data-win="4" class="card">
+                    <img class="card-front card-8" src="assets/images/rocky.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/rubble.jpg" alt="" />
+                <div data-id="1" data-win="5" class="card">
+                    <img class="card-front card-9" src="assets/images/rubble.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/rubble.jpg" alt="" />
+                <div data-id="1" data-win="5" class="card">
+                    <img class="card-front card-10" src="assets/images/rubble.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/zuma.jpg" alt="" />
+                <div data-id="1" data-win="6" class="card">
+                    <img class="card-front card-11" src="assets/images/zuma.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
-                <div class="card" onclick="flipCard(this)">
-                    <img class="card-front" src="assets/images/zuma.jpg" alt="" />
+                <div data-id="1" data-win="6" class="card">
+                    <img class="card-front card-12" src="assets/images/zuma.jpg" alt="" />
                     <img class="card-back" src="assets/images/paw-patrol-logo.jpg" alt="" />
                 </div>
             </div>
             <div class="reset-button">
                 <div class="col-12">
-                    <button class="btn btn-danger btn-lg reset-btn" id="reset-btn">Restart <i class="fas fa-undo-alt" title="reset cards button"></i></button>
+                    <button class="btn btn-danger btn-lg reset-btn" id="reset-btn">Start</button>
                 </div>
             </div>
-            <div class="modal" id="gameOverModal">
-            <div class="modal-content">
-                <span aria-label="close" role="button" class="close" id="closeModal">&times;</span>
-                <div class="modal-header">
-                    <h2>Game Over</h2>
-                </div>
-                <div class="modal-body">
-                    <div class="message">
-                        <p>Congratulations!</p>
-                    </div>
-                </div>
-                <div class="modal-button">
-                     <button class="btn btn-danger btn-lg reset-btn" id="restart-btn">Click to Restart <i class="fas fa-undo-alt" title="reset cards button"></i></button>
-                </div>
-            </div>
-        </div>
    </div>
     
 
