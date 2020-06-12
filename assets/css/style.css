@@ -1,3 +1,5 @@
+/*Fonts*/
+
 @import url("https://fonts.googleapis.com/css?family=Fredoka+One:100,200,300,400,500,600,700");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
 
@@ -20,7 +22,7 @@ h1 {
     color: #ff0000; 
 }
 
-
+/*background of the game*/
 .game-container {
     margin: 0;
     min-height: 100vh;
@@ -38,6 +40,7 @@ h1 {
     padding-right: 500px;
 }
 
+/*details of the game*/
 .time, .moves {
     font-family: "Raleway", sans-serif;
     text-shadow: -1px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -1px #ffffff;
@@ -45,6 +48,8 @@ h1 {
     font-size: 30px;
 
 }
+
+/*card deck*/
 .game-card {
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -95,6 +100,7 @@ h1 {
     transition: transform .2s;
 }
 
+/*buttons*/
 .play-button {
     text-align: center;
     margin:auto;
@@ -110,6 +116,26 @@ h1 {
     border: 2px solid #ffffff;
 }
 
+.game-over-container button{
+    width: 60%;
+    padding: 4vh;
+    margin-top: 3vh;
+    border-radius: 15px;
+    font-size: 23px;
+    font-weight: bold;
+    color: #f0f0f0;
+    border: 2px solid #f0f0f0;
+    cursor: url('../cursor/paw-cursor.cur'), auto;
+    background-color:#ff0000; 
+    transition: 1s;
+    outline: none;
+}
+
+.game-over-container button:hover{
+    background: linear-gradient(white,red);
+}
+
+/*End of the game*/
 .game-over-container{
     position: absolute;
     top: -1000px;
@@ -139,7 +165,6 @@ h1 {
     text-align: center;
     text-shadow: -1px 0 #ffffff, 0 2px #ffffff, 2px 0 #ffffff, 0 -1px #ffffff;
     color: #ff0000
-    
 }
 
 .game-over-container .details{
@@ -150,31 +175,12 @@ h1 {
     padding: 2vh 0;
 }
 
-.game-over-container button{
-    width: 60%;
-    padding: 4vh;
-    margin-top: 3vh;
-    border-radius: 15px;
-    font-size: 23px;
-    font-weight: bold;
-    color: #f0f0f0;
-    border: 2px solid #f0f0f0;
-    cursor: url('../cursor/paw-cursor.cur'), auto;
-    background-color:#ff0000; 
-    transition: 1s;
-    outline: none;
-}
-
-.game-over-container button:hover{
-    background: linear-gradient(white,red);
-}
-
 .slideIn{
     left: 0;
     top: 0;
 }
 
-
+/*media queries*/
 @media (max-width: 600px) {
     
     h1 {
