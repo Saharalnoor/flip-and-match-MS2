@@ -21,10 +21,17 @@ let maximumTime = 60,
     cards = document.querySelectorAll(".card");
 
 
-    //Start game
-    function play(){
-        
-    if((!gameIsRunning) && (!firstRun)){
+    // refresh the page when the game is over after pressing on "PLAY AGAIN"
+function reset(){
+
+   window.location.href = window.location.href;
+
+}
+
+
+function play(){
+
+   if((!gameIsRunning) && (!firstRun)){
 
         gameIsRunning = true;
         return resume();
@@ -40,15 +47,16 @@ let maximumTime = 60,
     gameIsRunning = true;
     this.innerHTML = "PAUSE";
 
-//shuffle the cards
+  //shuffle the cards
   shuffle();
 
- // add click event listeners
+  // add click event listeners
   addEvent()
 
-// start the time counter
+  // start the time counter
   count()
 }
+
 
 // shuffling function
 function shuffle(){
@@ -80,6 +88,8 @@ function lockCards(){
     cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
     return;
 }
+
+
 
 
 // function which checks for match
@@ -123,12 +133,12 @@ function checkMatch(){
         first_card.removeEventListener("click",checkMatch);
         second_card.removeEventListener("click",checkMatch);
 
-        // unlock the cards after 2 seconds if its a match
+        // unlock the cards after 1 seconds if its a match
         setTimeout(addEvent, 1000);
 
     } else {
 
-        // flip back the two cards after 2 seconds if its not a match
+        // flip back the two cards after 1 seconds if its not a match
         setTimeout(() => {
             
             first_card.classList.remove("flip");
@@ -148,6 +158,7 @@ function checkMatch(){
     return;
 
 }
+
 
 // pause the game when playing
 function pause(){
@@ -192,7 +203,9 @@ function game_over(){
 }
 
 
+
 function count(){
+
  counterFunc = setInterval(()=>{
 
    timeCounter++;
