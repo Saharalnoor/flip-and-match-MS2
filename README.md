@@ -47,9 +47,9 @@ When the player finish the game the Game over container will show, which will te
 
 In the future I would like to implement more features :
 
-* Put Audio sound for the background, flipping, matched, game over and victory
 * Put some animation when the cards are matched
 * Add some options of levels which in every level has different challenges
+* Putting stars to rate how good the player is
 
 ## Technologies Used
 - HTML : To form the structure of the site.
