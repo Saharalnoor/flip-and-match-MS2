@@ -1,4 +1,9 @@
-let maximumTime = 60,
+let bg_sound_path = "assets/audio/bg-Music.mp3",
+    victory_sound_path = "assets/audio/victory-sound.wav",
+    match_sound_path = "assets/audio/match-sound.wav",
+    gameover_sound_path = "assets/audio/fail-sound.wav",
+    flip_sound_path = "assets/audio/flip-sound.wav",
+    maximumTime = 60,
     flipped_cards = 0,
     timeCounter = 0,
     counterFunc,
@@ -18,7 +23,14 @@ let maximumTime = 60,
     gameover_header = document.querySelector(".header"),
     gameover_details = document.querySelector(".details"),
     gameover_play_again = document.querySelector(".play_again"),
-    cards = document.querySelectorAll(".card");
+    bg_audio = document.querySelector(".bg_audio"),
+    flip_audio = document.querySelector(".flip_audio"),
+    activity_audio = document.querySelector(".activity_audio"),
+    victory_cont = document.querySelector(".victory-container"),
+    victory_header = document.querySelector(".v_header"),
+    victory_details = document.querySelector(".v_details"),
+    victory_play_again = document.querySelector(".v_play_again"),
+     cards = document.querySelectorAll(".card");
 
 
     // refresh the page when the game is over after pressing on "PLAY AGAIN"
@@ -55,6 +67,14 @@ function play(){
 
   // start the time counter
   count()
+
+  bg_audio.src = bg_sound_path;
+  bg_audio.currentTime = 23;
+  bg_audio.play();
+
+  bg_audio.volume = 0.3;
+  activity_audio.volume = 1;
+
 }
 
 
@@ -95,6 +115,13 @@ function lockCards(){
 // function which checks for match
 function checkMatch(){
 
+    flip_audio.src = flip_sound_path;
+    flip_audio.play();
+
+    setTimeout(() => {
+        flip_audio.pause();
+    }, 300);
+
     clicks++;
 
     moves.innerHTML ="Moves: <span>"+clicks+"</span>";
@@ -108,6 +135,7 @@ function checkMatch(){
     if(flipped_cards == 0){
         first_card = this;
         flipped_cards++;
+
         return;
     }
 
@@ -127,20 +155,27 @@ function checkMatch(){
         disabled_cards.push(first_card);
         disabled_cards.push(second_card);
 
-        if(matched == 5) return game_over();
+        if(matched == 5) return victory();
+
+        bg_audio.pause();
+        activity_audio.src = match_sound_path;
+        activity_audio.play();
 
         matched++;
         first_card.removeEventListener("click",checkMatch);
         second_card.removeEventListener("click",checkMatch);
 
-        // unlock the cards after 1 seconds if its a match
-        setTimeout(addEvent, 1000);
+        // unlock the cards after 2 seconds if its a match
+        setTimeout(function(){
+            bg_audio.play();
+            addEvent();
+        },2000);
 
     } else {
 
-        // flip back the two cards after 1 seconds if its not a match
+        // flip back the two cards after 1 second if its not a match
         setTimeout(() => {
-            
+
             first_card.classList.remove("flip");
             second_card.classList.remove("flip");
 
@@ -162,7 +197,7 @@ function checkMatch(){
 
 // pause the game when playing
 function pause(){
-
+    bg_audio.pause();
     btn.innerHTML = "RESUME";
     clearInterval(counterFunc);
     cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
@@ -172,6 +207,7 @@ function pause(){
 
 // resume the game if it was paused
 function resume(){
+    bg_audio.play();
     btn.innerHTML = "PAUSE";
     count();
     addEvent();
@@ -182,6 +218,10 @@ function resume(){
 function game_over(){
 
     clearInterval(counterFunc);
+
+    bg_audio.pause();
+    activity_audio.src = gameover_sound_path;
+    activity_audio.play();
 
     gameover_cont.style.left = 0;
     gameover_cont.style.top = 0;
@@ -202,6 +242,34 @@ function game_over(){
     return;
 }
 
+
+function victory(){
+
+    clearInterval(counterFunc);
+
+    bg_audio.pause();
+    activity_audio.src = victory_sound_path;
+    activity_audio.play();
+
+    victory_cont.style.left = 0;
+    victory_cont.style.top = 0;
+
+    victory_header.innerHTML = "CONGRATULATIONS !!";
+
+    if(timeCounter < 60){
+        victory_details.innerHTML = "YOU'VE WON IN "+ timeCounter+" SEC WITH  "+clicks+" MOVES";
+      } else {
+        victory_details.innerHTML = "YOU'VE WON IN"+(Math.floor(timeCounter/60))+" MIN "+(timeCounter%60)+" SEC WITH "+clicks+" MOVES";
+    }
+
+    btn.innerHTML = "PLAY";
+    cards.forEach((card)=>{card.removeEventListener("click",checkMatch)});
+
+    victory_play_again.onclick = reset;
+
+    return;
+
+}
 
 
 function count(){
@@ -225,3 +293,8 @@ function count(){
 
 
 btn.onclick = play;
+bg_audio.onended = function(){
+    this.currentTime = 0;
+    this.play();
+}
+
